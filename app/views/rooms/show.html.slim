@@ -6,3 +6,6 @@ h1 Rooms#show
   = link_to "変更", edit_room_path(@room)
   = link_to "削除", room_path(@room), method: :delete,
     data: { confirm: "このルームを削除しますか?" }
+
+#room_posts
+  == render @posts

@@ -7,6 +7,7 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @posts = @room.posts.order(created_at: :desc)
   end
 
   def new
