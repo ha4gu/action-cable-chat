@@ -7,6 +7,13 @@ h1 Rooms#show
   = link_to "削除", room_path(@room), method: :delete,
     data: { confirm: "このルームを削除しますか?" }
 
+#new_post
+  form
+    label make a new post >&nbsp;
+    = tag.input type: "text", id: "new_post_input",
+      autocomplete: 'off', size: '30'
+  hr
+
 #room_posts
   == render @posts
 
