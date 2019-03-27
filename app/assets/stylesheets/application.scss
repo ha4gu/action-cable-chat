@@ -1,1 +1,23 @@
-
+h1 {
+  margin: 8px 0;
+}
+input {
+  border: 1px solid lightgray;
+}
+#flash, #flash p {
+  margin: 0;
+  background-color: lightgrey;
+  color: red;
+}
+#account {
+  margin: 0;
+  background-color: lightgrey;
+  span {
+    color: green;
+  }
+}
+#links {
+  a {
+    margin-right: 8px;
+  }
+}

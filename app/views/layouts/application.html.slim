@@ -7,5 +7,25 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    meta[name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"]
   body
+    #flash
+      - if flash.any?
+        - flash.each do |message_type, message|
+            = tag.p message
+    #account
+      - if user_signed_in?
+        | You're logged in as:&nbsp;
+        = tag.span current_user.email
+      - else
+        | Not logged in.
+    #links
+      = link_to "ルーム一覧", root_path
+      - if user_signed_in?
+        = link_to "ルーム新規作成", new_room_path
+        = link_to "ログアウト", destroy_user_session_path,
+            method: :delete, data: { confirm: "ログアウトしますか?" }
+      - else
+        = link_to "新規登録", new_user_registration_path
+        = link_to "ログイン", new_user_session_path
     = yield
