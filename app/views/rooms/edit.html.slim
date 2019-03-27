@@ -1,2 +1,6 @@
 h1 Rooms#edit
-p Find me in app/views/rooms/edit.html.slim
+
+= form_with(model: @room, local: true) do |f|
+  p= f.label :name
+  p= f.text_field :name
+  p= f.submit

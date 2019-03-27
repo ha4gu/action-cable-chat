@@ -1,2 +1,8 @@
 h1 Rooms#show
-p Find me in app/views/rooms/show.html.slim
+
+#room_info
+  | ルーム名
+  = tag.span @room.name
+  = link_to "変更", edit_room_path(@room)
+  = link_to "削除", room_path(@room), method: :delete,
+    data: { confirm: "このルームを削除しますか?" }
