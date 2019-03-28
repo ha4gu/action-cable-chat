@@ -8,6 +8,7 @@ class ChatChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    ActionCable.server.broadcast 'chat_channel', message: data['content']
+    ActionCable.server.broadcast 'chat_channel', message: data['content'],
+      room_id: params['room'], user_id: current_user.email
   end
 end
