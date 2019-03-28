@@ -1,3 +1,5 @@
+//= require infinite-scroll.pkgd.min
+
 document.addEventListener('DOMContentLoaded', () => {
   const inputarea = document.getElementById('new_post_input');
   inputarea.focus();
@@ -9,5 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
       };
       event.preventDefault();
     };
+  });
+  var infScroll = new InfiniteScroll( '#room_posts', {
+    // options
+    path: 'nav.pagination a[rel=next]',
+    append: 'p.single_post',
+    prefill: true,
+    history: false,
+    hideNav: '.pagination',
+    status: '#page-load-status',
   });
 })
