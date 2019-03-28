@@ -10,7 +10,8 @@ App.chat = App.cable.subscriptions.create(
   },
 
   received: function(data) {
-    alert(data['message'] + " / " + data['room_id'] + " / " + data['user_id']);
+    let posts = document.getElementById("room_posts");
+    posts.insertAdjacentHTML('afterbegin', data['message']);
   },
 
   speak: function(input) {
