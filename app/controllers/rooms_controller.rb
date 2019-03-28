@@ -1,13 +1,15 @@
 class RoomsController < ApplicationController
   before_action :must_be_logged_in, except: [:index]
 
+  include Pagy::Backend
+
   def index
     @rooms = Room.all
   end
 
   def show
     @room = Room.find(params[:id])
-    @posts = @room.posts.order(created_at: :desc)
+    @pagy, @posts = pagy(@room.posts.order(created_at: :desc), items: 15)
   end
 
   def new

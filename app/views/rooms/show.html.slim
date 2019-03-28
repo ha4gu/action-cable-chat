@@ -17,5 +17,7 @@ h1 Rooms#show
 #room_posts
   == render @posts
 
+== pagy_nav(@pagy)
+
 = javascript_include_tag "cable.js"
 = javascript_include_tag "rooms.js"
